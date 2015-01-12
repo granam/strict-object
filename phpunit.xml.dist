@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit
+        bootstrap="./vendor/autoload.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnFailure="true"
+        processIsolation="false"
+        backupGlobals="false"
+        syntaxCheck="true"
+        strict="true"
+        >
+    <testsuite name="object">
+        <directory>./Granam/StrictObject/Tests</directory>
+    </testsuite>
+</phpunit>
