@@ -1,18 +1,18 @@
-## A base object, throwing an exception in case of access to undefined property or method.
+### A base object, throwing an exception in case of access to undefined property or method.
 
-# *You deserve to know...*
+[*You deserve to know...*](#you-deserve-to-know)
+[Usage](#usage)
+[Install](#Install)
+
+## *You deserve to know...*
 
 *Be lazy. Be smart.*
-
 *To achieve that, you need to know.*
-
 *Know about access to an undefined property, to an undefined method.*
-
 *It can be anything, but at first it is a problem.*
-
 *And you should be lazy enough to want to know that happened immediately.*
 
-# Usage
+## Usage
 
 Just extend the object...
 
@@ -39,7 +39,7 @@ if (!$foo->everythinkOk) {
 ...which results into *PHP Fatal error: Uncaught exception 'ReadingAccess' on line 4 in file test.php*
 Think twice about catching something like that! Remember, **you need to know**...
 
-# Install
+## Install
 
 Extend composer.json of your project by
 ```json
