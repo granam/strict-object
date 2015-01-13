@@ -5,6 +5,6 @@ namespace Granam\StrictObject\Exceptions;
  * Class PropertyWritingAccess
  * @package Granam\StrictObject\Exceptions
  */
-class UnknownPropertyWrite extends Access {
+class UnknownPropertyWrite extends WritingAccess {
 
 }
