@@ -16,7 +16,7 @@
 
 *It can be anything, but at first it is a problem.*
 
-*And you should be lazy enough to want to know that happened immediately, rather then searching logs after.*
+*And you should be lazy enough to want to know that happened immediately, rather than searching logs after.*
 
 ## Usage
 
