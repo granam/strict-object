@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jaroslavtyc/granam-strict-object.svg?branch=travis-support-forced)](https://travis-ci.org/jaroslavtyc/granam-strict-object)
+
 ### A base object, throwing an exception in case of access to undefined property or method.
 
 #### [*You deserve to know...*](#you-deserve-to-know)
