@@ -2,9 +2,9 @@
 
 **A base object, throwing an exception in case of access to undefined property or method.**
 
-[***You deserve to know...***](#you-deserve-to-know)
-[**Usage**](#usage)
-[**Install**](#Install)
+1. [***You deserve to know...***](#you-deserve-to-know)
+2. [**Usage**](#usage)
+3. [**Install**](#Install)
 
 ## *You deserve to know...*
 
