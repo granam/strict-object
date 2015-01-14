@@ -41,11 +41,11 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\ReadingAccess
+	 * @expectedException \Granam\StrictObject\Exceptions\UnknownPropertyRead
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
 	 */
-	public function accessOfUndefinedPropertyThrowsException()
+	public function readingOfAnUndefinedPropertyThrowsException()
 	{
 		$object = $this->createObjectInstance();
 		$object->foo;
@@ -53,7 +53,19 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\WritingAccess
+	 * @expectedException \Granam\StrictObject\Exceptions\ReadingAccess
+	 *
+	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
+	 */
+	public function readingOfAnUndefinedPropertyThrowsReadingAccessException()
+	{
+		$object = $this->createObjectInstance();
+		$object->foo;
+	}
+
+	/**
+	 * @test
+	 * @expectedException \Granam\StrictObject\Exceptions\UnknownPropertyWrite
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
 	 */
@@ -64,10 +76,23 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @test
+	 * @expectedException \Granam\StrictObject\Exceptions\WritingAccess
+	 *
+	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
+	 */
+	public function writeToUndefinedPropertyThrowsWrittingAccessException()
+	{
+		$object = $this->createObjectInstance();
+		$object->foo = 'bar';
+	}
+
+	/**
 	 * @return \Granam\StrictObject\StrictObject
 	 */
 	private function createObjectInstance()
 	{
+		// returns concrete object as a tested abstract one
 		return new AnObject();
 	}
 }
