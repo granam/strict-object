@@ -62,3 +62,6 @@ Extend composer.json of your project by
  }
 ```
 and run *[composer update](https://getcomposer.org/doc/03-cli.md#update)*
+```
+composer update granam/strict-object
+```
