@@ -59,7 +59,7 @@ Extend composer.json of your project by
          }
      ],
      "require": {
-         "granam/strict-object": "~1.0.0"
+         "granam/strict-object": "~1.1.0"
      }
  }
 ```
