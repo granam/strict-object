@@ -1,9 +1,9 @@
 <?php
-namespace Granam\StrictObject\Exceptions;
+namespace Granam\Strict\Object\Exceptions;
 
 /**
  * Class UnknownMethodCalled
- * @package Granam\StrictObject\Exceptions
+ * @package Granam\Strict\Object\Exceptions
  */
 class UnknownMethodCalled extends Executing {
 

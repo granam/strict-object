@@ -1,5 +1,5 @@
 <?php
-namespace Granam\StrictObject;
+namespace Granam\Strict\Object;
 
 /**
  * Object

@@ -1,13 +1,13 @@
 <?php
-namespace Granam\StrictObject\Tests;
+namespace Granam\Strict\Object\Tests;
 
-use Granam\StrictObject\StrictObject;
+use Granam\Strict\Object\StrictObject;
 
 trait StrictObjectTestTrait
 {
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\UnknownMethodCalled
+	 * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
 	 */
@@ -19,7 +19,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\UnknownStaticMethodCalled
+	 * @expectedException \Granam\Strict\Object\Exceptions\UnknownStaticMethodCalled
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.callstatic
 	 */
@@ -31,7 +31,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\UnknownMethodCalled
+	 * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
 	 *
 	 * @link http://php.net/manual/en/language.oop5.magic.php#object.invoke
 	 */
@@ -43,7 +43,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\UnknownPropertyRead
+	 * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyRead
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
 	 */
@@ -55,7 +55,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\ReadingAccess
+	 * @expectedException \Granam\Strict\Object\Exceptions\ReadingAccess
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
 	 */
@@ -67,7 +67,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\UnknownPropertyWrite
+	 * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyWrite
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
 	 */
@@ -79,7 +79,7 @@ trait StrictObjectTestTrait
 
 	/**
 	 * @test
-	 * @expectedException \Granam\StrictObject\Exceptions\WritingAccess
+	 * @expectedException \Granam\Strict\Object\Exceptions\WritingAccess
 	 *
 	 * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
 	 */

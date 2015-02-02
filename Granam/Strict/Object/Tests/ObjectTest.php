@@ -1,5 +1,5 @@
 <?php
-namespace Granam\StrictObject\Tests;
+namespace Granam\Strict\Object\Tests;
 
 class ObjectTest extends \PHPUnit_Framework_TestCase
 {
@@ -7,7 +7,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
 	use StrictObjectTestTrait;
 
 	/**
-	 * @return \Granam\StrictObject\StrictObject
+	 * @return \Granam\Strict\Object\StrictObject
 	 */
 	protected function createObjectInstance()
 	{

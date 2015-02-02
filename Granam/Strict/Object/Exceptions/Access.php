@@ -1,9 +1,9 @@
 <?php
-namespace Granam\StrictObject\Exceptions;
+namespace Granam\Strict\Object\Exceptions;
 
 /**
  * Class Access
- * @package Granam\StrictObject\Exceptions
+ * @package Granam\Strict\Object\Exceptions
  */
 class Access extends \OutOfBoundsException implements Exception {
 
