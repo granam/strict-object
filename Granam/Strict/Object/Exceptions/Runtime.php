@@ -2,9 +2,9 @@
 namespace Granam\Strict\Object\Exceptions;
 
 /**
- * Interface Exception
+ * Interface Runtime
  * @package Granam\Strict\Object\Exceptions
  */
-interface Exception extends \Granam\Exceptions\Exception {
+interface Runtime extends \Granam\Exceptions\Runtime {
 
 }
