@@ -52,7 +52,7 @@ trait StrictObjectTrait
 	 */
 	public static function __callStatic($name, array $arguments)
 	{
-		throw new Exceptions\UnknownStaticMethodCalled(\sprintf('Executing static method [%s->%s()] fails. Does not exists or has restricted access.', \get_called_class(), $name));
+		throw new Exceptions\UnknownStaticMethodCalled(\sprintf('Executing static method [%s::%s()] fails. Does not exists or has restricted access.', \get_called_class(), $name));
 	}
 
 	/**
