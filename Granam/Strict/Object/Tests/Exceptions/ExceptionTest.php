@@ -7,6 +7,6 @@ class ExceptionTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function exception_interface_exists()
     {
-        $this->assertTrue(interface_exists(Exception::class));
+        $this->assertTrue(interface_exists('Granam\Strict\Object\Exceptions\Exception'));
     }
 }
