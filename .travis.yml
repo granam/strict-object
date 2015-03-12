@@ -4,14 +4,14 @@ php:
   - 5.5
   - 5.4
   - hhvm
-  - hhvm-nightly
+  - nightly
 
 matrix:
   allow_failures:
     - php: hhvm-nightly
 
 before_script:
-  - composer update --dev --no-interaction --prefer-dist
+  - composer update --no-interaction --prefer-dist
 
 script:
   - ./vendor/phpunit/phpunit/phpunit
