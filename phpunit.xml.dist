@@ -4,14 +4,18 @@
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
-        stopOnFailure="true"
+        stopOnFailure="false"
         processIsolation="false"
         backupGlobals="false"
         syntaxCheck="true"
-        strict="true"
         colors="true"
         >
-    <testsuite name="object">
-        <directory>./Granam/Strict/Object/Tests</directory>
+    <testsuite name="all">
+        <directory>./Tests</directory>
     </testsuite>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true" addUncoveredFilesFromWhitelist="true">
+            <directory>./Granam</directory>
+        </whitelist>
+    </filter>
 </phpunit>

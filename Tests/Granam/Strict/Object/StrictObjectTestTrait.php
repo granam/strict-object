@@ -1,5 +1,5 @@
 <?php
-namespace Granam\Strict\Object\Tests;
+namespace Tests\Granam\Strict\Object;
 
 use Granam\Strict\Object\StrictObject;
 
@@ -14,6 +14,7 @@ trait StrictObjectTestTrait
 	public function callingUndefinedMethodThrowsException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedMethodInspection */
 		$object->foo();
 	}
 
@@ -26,6 +27,7 @@ trait StrictObjectTestTrait
 	public function callingOfUndefinedStaticMethodThrowsException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedMethodInspection */
 		$object::foo();
 	}
 
@@ -50,6 +52,7 @@ trait StrictObjectTestTrait
 	public function readingOfAnUndefinedPropertyThrowsException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedFieldInspection */
 		$object->foo;
 	}
 
@@ -62,6 +65,7 @@ trait StrictObjectTestTrait
 	public function readingOfAnUndefinedPropertyThrowsReadingAccessException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedFieldInspection */
 		$object->foo;
 	}
 
@@ -74,6 +78,7 @@ trait StrictObjectTestTrait
 	public function writeToUndefinedPropertyThrowsException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedFieldInspection */
 		$object->foo = 'bar';
 	}
 
@@ -86,6 +91,7 @@ trait StrictObjectTestTrait
 	public function writeToUndefinedPropertyThrowsWritingAccessException()
 	{
 		$object = $this->createObjectInstance();
+		/** @noinspection PhpUndefinedFieldInspection */
 		$object->foo = 'bar';
 	}
 
