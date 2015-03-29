@@ -52,14 +52,8 @@ Think twice about catching something like that! Remember, **you need to know**..
 Extend composer.json of your project by
 ```json
  {
-     "repositories": [
-         {
-             "type": "vcs",
-             "url": "https://github.com/jaroslavtyc/granam-strict-object"
-         }
-     ],
      "require": {
-         "granam/strict-object": "~1.1.0"
+         "granam/strict-object": "~1.0"
      }
  }
 ```
