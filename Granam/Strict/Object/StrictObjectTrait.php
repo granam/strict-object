@@ -64,4 +64,14 @@ trait StrictObjectTrait
 	{
 		throw new Exceptions\UnknownMethodCalled(\sprintf('Calling object of class [%s] as method fails. Does not implements __invoke() method.', \get_called_class()));
 	}
+
+	/**
+	 * Gives name of called class name - same as magic ::class constant would (PHP 5.5+)
+	 *
+	 * @return string
+	 */
+	public static function getClass()
+	{
+		return get_called_class();
+	}
 }

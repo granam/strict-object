@@ -95,6 +95,18 @@ trait StrictObjectTestTrait
 		$object->foo = 'bar';
 	}
 
+	/**
+	 * @test
+	 */
+	public function knowsItsClassName()
+	{
+		/** @var \PHPUnit_Framework_TestCase|StrictObjectTestTrait $this */
+		$this->assertSame('Granam\Strict\Object\StrictObject', StrictObject::getClass());
+		$object = $this->createObjectInstance();
+		$this->assertSame(get_class($object), $object::getClass());
+
+	}
+
 	/** @return StrictObject */
 	abstract protected function createObjectInstance();
 

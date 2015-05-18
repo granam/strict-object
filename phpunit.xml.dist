@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
         bootstrap="_tests_bootstrap.php"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
@@ -7,7 +9,6 @@
         stopOnFailure="false"
         processIsolation="false"
         backupGlobals="false"
-        syntaxCheck="true"
         colors="true"
         >
     <testsuite name="all">
