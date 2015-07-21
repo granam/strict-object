@@ -1,31 +1,35 @@
 {
-    "name": "granam/strict-object",
-    "description": "Base object, checking access to undefined properties and methods",
-    "keywords": [
-        "php",
-        "object",
-        "strict"
-    ],
-    "homepage": "https://github.com/jaroslavtyc/granam-strict-object",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Jaroslav Týc",
-            "homepage": "http://jaroslavtyc.com",
-            "role": "Original author"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Granam\\": "Granam/",
-            "Tests\\": "Tests/"
-        }
-    },
-    "require": {
-        "php": ">=5.4",
-        "granam/exception-hierarchy": "dev-master"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.4"
+  "name": "granam/strict-object",
+  "description": "Base object, checking access to undefined properties and methods",
+  "keywords": [
+    "php",
+    "object",
+    "strict",
+    "access",
+    "read",
+    "write",
+    "permissions"
+  ],
+  "homepage": "https://github.com/jaroslavtyc/granam-strict-object",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jaroslav Týc",
+      "homepage": "http://jaroslavtyc.com",
+      "role": "Original author"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Granam\\": "Granam/",
+      "Tests\\": "Tests/"
+    }
+  },
+  "require": {
+    "php": ">=5.4",
+    "granam/exception-hierarchy": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  }
 }
