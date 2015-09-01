@@ -12,6 +12,6 @@ class ExceptionsHierarchyTest extends AbstractTestOfExceptionsHierarchy
 
 	protected function getRootNamespace()
 	{
-		return __NAMESPACE__;
+		return $this->getTestedNamespace();
 	}
 }
