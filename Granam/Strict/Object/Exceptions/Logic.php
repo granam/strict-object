@@ -1,7 +1,7 @@
 <?php
 namespace Granam\Strict\Object\Exceptions;
 
-interface Logic extends Exception
+interface Logic extends Exception, \Granam\Exceptions\Logic
 {
 
 }
