@@ -12,7 +12,9 @@ trait StrictObjectTrait
      */
     public function __get($name)
     {
-        throw new Exceptions\UnknownPropertyRead(\sprintf('Reading of property [%s->%s] fails. Does not exists or has restricted access.', \get_class($this), $name));
+        throw new Exceptions\UnknownPropertyRead(
+            \sprintf('Reading of property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name)
+        );
     }
 
     /**
@@ -24,7 +26,7 @@ trait StrictObjectTrait
      */
     public function __set($name, $value)
     {
-        throw new Exceptions\UnknownPropertyWrite(\sprintf('Writing to property [%s->%s] fails. Does not exists or has restricted access.', \get_class($this), $name));
+        throw new Exceptions\UnknownPropertyWrite(\sprintf('Writing to property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name));
     }
 
     /**
@@ -36,7 +38,9 @@ trait StrictObjectTrait
      */
     public function __call($name, array $arguments)
     {
-        throw new Exceptions\UnknownMethodCalled(\sprintf('Method [%s->%s()] does not exists or has restricted access.', \get_class($this), $name));
+        throw new Exceptions\UnknownMethodCalled(
+            \sprintf('Method [%s->%s()] does not exist or has restricted access.', \get_class($this), $name)
+        );
     }
 
     /**
@@ -48,7 +52,9 @@ trait StrictObjectTrait
      */
     public static function __callStatic($name, array $arguments)
     {
-        throw new Exceptions\UnknownStaticMethodCalled(\sprintf('Static method [%s::%s()] does not exists or has restricted access.', \get_called_class(), $name));
+        throw new Exceptions\UnknownStaticMethodCalled(
+            \sprintf('Static method [%s::%s()] does not exist or has restricted access.', \get_called_class(), $name)
+        );
     }
 
     /**
@@ -58,7 +64,9 @@ trait StrictObjectTrait
      */
     public function __invoke()
     {
-        throw new Exceptions\UnknownMethodCalled(\sprintf('Calling object of class [%s] as method fails. Does not implements __invoke() method.', \get_called_class()));
+        throw new Exceptions\UnknownMethodCalled(
+            \sprintf('Calling object of class [%s] as a function fails. Does not implement __invoke() method.', \get_called_class())
+        );
     }
 
     /**
