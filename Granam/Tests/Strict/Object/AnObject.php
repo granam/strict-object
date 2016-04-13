@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Granam\Strict\Object;
+namespace Granam\Tests\Strict\Object;
 
 use Granam\Strict\Object\StrictObject;
 

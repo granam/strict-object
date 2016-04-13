@@ -1,9 +1,9 @@
 <?php
 namespace Granam\Strict\Object;
 
-use Granam\Exceptions\Tests\Tools\AbstractTestOfExceptionsHierarchy;
+use Granam\Tests\Exceptions\Tools\AbstractExceptionsHierarchyTest;
 
-class ExceptionsHierarchyTest extends AbstractTestOfExceptionsHierarchy
+class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 {
     protected function getTestedNamespace()
     {

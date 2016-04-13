@@ -1,8 +1,8 @@
 <?php
 namespace Granam\Strict\Object;
 
-use Tests\Granam\Strict\Object\AnObject;
-use Tests\Granam\Strict\Object\StrictObjectTestTrait;
+use Granam\Tests\Strict\Object\AnObject;
+use Granam\Tests\Strict\Object\StrictObjectTestTrait;
 
 class ObjectTest extends \PHPUnit_Framework_TestCase
 {

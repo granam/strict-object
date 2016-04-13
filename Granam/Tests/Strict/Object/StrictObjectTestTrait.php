@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Granam\Strict\Object;
+namespace Granam\Tests\Strict\Object;
 
 use Granam\Strict\Object\StrictObject;
 
@@ -100,10 +100,9 @@ trait StrictObjectTestTrait
      */
     public function knowsItsClassName()
     {
-        /** @var \PHPUnit_Framework_TestCase|StrictObjectTestTrait $this */
-        $this->assertSame('Granam\Strict\Object\StrictObject', StrictObject::getClass());
+        self::assertSame('Granam\Strict\Object\StrictObject', StrictObject::getClass());
         $object = $this->createObjectInstance();
-        $this->assertSame(get_class($object), $object::getClass());
+        self::assertSame(get_class($object), $object::getClass());
 
     }
 
