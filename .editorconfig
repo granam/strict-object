@@ -6,10 +6,11 @@ root = true
 [*]
 end_of_line = LF
 charset=utf-8
-insert_final_newline = true
+insert_final_newline = false
 
 [*.php]
-indent_style = tab
+indent_style = space
+indent_size = 4
 
 [*.json]
 indent_style = space
