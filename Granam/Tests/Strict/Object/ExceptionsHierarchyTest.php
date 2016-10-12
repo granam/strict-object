@@ -15,11 +15,4 @@ class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
         return $this->getTestedNamespace();
     }
 
-    protected function getExternalRootNamespaces()
-    {
-        return [
-            'Granam'
-        ];
-    }
-
 }
