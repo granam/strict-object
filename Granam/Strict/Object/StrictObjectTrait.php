@@ -5,9 +5,8 @@ trait StrictObjectTrait
 {
 
     /**
-     * @param $name
+     * @param string $name
      * @throws Exceptions\UnknownPropertyRead
-     *
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
      */
     public function __get($name)
@@ -18,10 +17,9 @@ trait StrictObjectTrait
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @param $value
      * @throws Exceptions\UnknownPropertyWrite
-     *
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
      */
     public function __set($name, $value)
@@ -30,10 +28,29 @@ trait StrictObjectTrait
     }
 
     /**
+     * @param string $name
+     * @return bool
+     * @link http://php.net/manual/en/language.oop5.overloading.php#object.isset
+     */
+    public function __isset($name)
+    {
+        return false;
+    }
+
+    /**
+     * @param string $name
+     * @throws Exceptions\UnknownPropertyWrite
+     * @link http://php.net/manual/en/language.oop5.overloading.php#object.unset
+     */
+    public function __unset($name)
+    {
+        throw new Exceptions\UnknownPropertyWrite(\sprintf('Unset of property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name));
+    }
+
+    /**
      * @param $name
      * @param array $arguments
      * @throws Exceptions\UnknownMethodCalled
-     *
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
     public function __call($name, array $arguments)
@@ -44,10 +61,9 @@ trait StrictObjectTrait
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @param array $arguments
      * @throws Exceptions\UnknownStaticMethodCalled
-     *
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.callstatic
      */
     public static function __callStatic($name, array $arguments)
@@ -59,7 +75,6 @@ trait StrictObjectTrait
 
     /**
      * @throws Exceptions\UnknownMethodCalled
-     *
      * @link http://php.net/manual/en/language.oop5.magic.php#object.invoke
      */
     public function __invoke()
@@ -67,15 +82,5 @@ trait StrictObjectTrait
         throw new Exceptions\UnknownMethodCalled(
             \sprintf('Calling object of class [%s] as a function fails. Does not implement __invoke() method.', \get_called_class())
         );
-    }
-
-    /**
-     * Gives name of called class name - same as magic ::class constant would (PHP 5.5+)
-     *
-     * @return string
-     */
-    public static function getClass()
-    {
-        return get_called_class();
     }
 }

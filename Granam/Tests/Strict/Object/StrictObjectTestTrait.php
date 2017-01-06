@@ -97,13 +97,33 @@ trait StrictObjectTestTrait
 
     /**
      * @test
+     * @link http://php.net/manual/en/language.oop5.overloading.php#object.isset
      */
-    public function knowsItsClassName()
+    public function askingIfIsSetUndefinedPropertyAlwaysReturnsFalse()
     {
-        self::assertSame('Granam\Strict\Object\StrictObject', StrictObject::getClass());
+        $objectWithPublicProperty = new AnObject();
+        /** @noinspection UnSafeIsSetOverArrayInspection */
+        self::assertTrue(isset($objectWithPublicProperty->whoAmI), 'Magic __isset should not affects existing public properties');
+        /** @noinspection PhpUnitTestsInspection */
+        self::assertFalse(empty($objectWithPublicProperty->whoAmI), 'Magic __isset should not affects existing public properties');
         $object = $this->createObjectInstance();
-        self::assertSame(get_class($object), $object::getClass());
+        /** @noinspection PhpUndefinedFieldInspection */
+        self::assertFalse(isset($object->foo));
+        /** @noinspection PhpUnitTestsInspection */
+        self::assertTrue(empty($object->foo));
+    }
 
+    /**
+     * @test
+     * @expectedException \Granam\Strict\Object\Exceptions\WritingAccess
+     *
+     * @link http://php.net/manual/en/language.oop5.overloading.php#object.unset
+     */
+    public function unsetOfUndefinedPropertyThrowsWritingAccessException()
+    {
+        $object = $this->createObjectInstance();
+        /** @noinspection PhpUndefinedFieldInspection */
+        unset($object->foo);
     }
 
     /** @return StrictObject */

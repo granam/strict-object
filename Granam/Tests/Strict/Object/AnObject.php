@@ -5,5 +5,5 @@ use Granam\Strict\Object\StrictObject;
 
 final class AnObject extends StrictObject
 {
-
+    public $whoAmI = 'whoKnows';
 }
