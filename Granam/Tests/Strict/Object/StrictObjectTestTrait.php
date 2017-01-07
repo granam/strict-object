@@ -107,7 +107,6 @@ trait StrictObjectTestTrait
         /** @noinspection PhpUnitTestsInspection */
         self::assertFalse(empty($objectWithPublicProperty->whoAmI), 'Magic __isset should not affects existing public properties');
         $object = $this->createObjectInstance();
-        /** @noinspection PhpUndefinedFieldInspection */
         self::assertFalse(isset($object->foo));
         /** @noinspection PhpUnitTestsInspection */
         self::assertTrue(empty($object->foo));
@@ -116,13 +115,10 @@ trait StrictObjectTestTrait
     /**
      * @test
      * @expectedException \Granam\Strict\Object\Exceptions\WritingAccess
-     *
-     * @link http://php.net/manual/en/language.oop5.overloading.php#object.unset
      */
     public function unsetOfUndefinedPropertyThrowsWritingAccessException()
     {
         $object = $this->createObjectInstance();
-        /** @noinspection PhpUndefinedFieldInspection */
         unset($object->foo);
     }
 

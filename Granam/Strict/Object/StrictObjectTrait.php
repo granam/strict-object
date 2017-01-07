@@ -16,6 +16,7 @@ trait StrictObjectTrait
         );
     }
 
+    /** @noinspection MagicMethodsValidityInspection */
     /**
      * @param string $name
      * @param $value
@@ -25,16 +26,6 @@ trait StrictObjectTrait
     public function __set($name, $value)
     {
         throw new Exceptions\UnknownPropertyWrite(\sprintf('Writing to property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name));
-    }
-
-    /**
-     * @param string $name
-     * @return bool
-     * @link http://php.net/manual/en/language.oop5.overloading.php#object.isset
-     */
-    public function __isset($name)
-    {
-        return false;
     }
 
     /**
