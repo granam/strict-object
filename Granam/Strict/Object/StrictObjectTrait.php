@@ -11,8 +11,17 @@ trait StrictObjectTrait
      */
     public function __get($name)
     {
+        $reason = 'Does not exist';
+        if (property_exists($this, $name)) {
+            $reason = 'Has restricted access';
+            if ((new \ReflectionProperty($this, $name))->isProtected()) {
+                $reason .= ' (is protected)';
+            } else {
+                $reason .= ' (is private)';
+            }
+        }
         throw new Exceptions\UnknownPropertyRead(
-            \sprintf('Reading of property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name)
+            \sprintf('Reading of property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
         );
     }
 
@@ -25,7 +34,18 @@ trait StrictObjectTrait
      */
     public function __set($name, $value)
     {
-        throw new Exceptions\UnknownPropertyWrite(\sprintf('Writing to property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name));
+        $reason = 'Does not exist';
+        if (property_exists($this, $name)) {
+            $reason = 'Has restricted access';
+            if ((new \ReflectionProperty($this, $name))->isProtected()) {
+                $reason .= ' (is protected)';
+            } else {
+                $reason .= ' (is private)';
+            }
+        }
+        throw new Exceptions\UnknownPropertyWrite(
+            \sprintf('Writing to property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
+        );
     }
 
     /**
@@ -35,7 +55,18 @@ trait StrictObjectTrait
      */
     public function __unset($name)
     {
-        throw new Exceptions\UnknownPropertyWrite(\sprintf('Unset of property [%s->%s] fails. Does not exist or has restricted access.', \get_class($this), $name));
+        $reason = 'Does not exist';
+        if (property_exists($this, $name)) {
+            $reason = 'has restricted access';
+            if ((new \ReflectionProperty($this, $name))->isProtected()) {
+                $reason .= ' (is protected)';
+            } else {
+                $reason .= ' (is private)';
+            }
+        }
+        throw new Exceptions\UnknownPropertyWrite(
+            \sprintf('Unset of property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
+        );
     }
 
     /**
@@ -46,9 +77,16 @@ trait StrictObjectTrait
      */
     public function __call($name, array $arguments)
     {
-        throw new Exceptions\UnknownMethodCalled(
-            \sprintf('Method [%s->%s()] does not exist or has restricted access.', \get_class($this), $name)
-        );
+        $reason = 'does not exist';
+        if (method_exists($this, $name)) {
+            $reason = 'has restricted access';
+            if ((new \ReflectionMethod($this, $name))->isProtected()) {
+                $reason .= ' (is protected)';
+            } else {
+                $reason .= ' (is private)';
+            }
+        }
+        throw new Exceptions\UnknownMethodCalled(\sprintf('Method [%s->%s()] %s.', \get_class($this), $name, $reason));
     }
 
     /**
@@ -59,8 +97,17 @@ trait StrictObjectTrait
      */
     public static function __callStatic($name, array $arguments)
     {
+        $reason = 'does not exist';
+        if (method_exists(static::class, $name)) {
+            $reason = 'has restricted access';
+            if ((new \ReflectionMethod(static::class, $name))->isProtected()) {
+                $reason .= ' (is protected)';
+            } else {
+                $reason .= ' (is private)';
+            }
+        }
         throw new Exceptions\UnknownStaticMethodCalled(
-            \sprintf('Static method [%s::%s()] does not exist or has restricted access.', \get_called_class(), $name)
+            \sprintf('Static method [%s::%s()] %s.', \get_called_class(), $name, $reason)
         );
     }
 
@@ -71,7 +118,10 @@ trait StrictObjectTrait
     public function __invoke()
     {
         throw new Exceptions\UnknownMethodCalled(
-            \sprintf('Calling object of class [%s] as a function fails. Does not implement __invoke() method.', \get_called_class())
+            \sprintf(
+                'Calling object of class [%s] as a function fails. It does not implement the __invoke() method.',
+                \get_called_class()
+            )
         );
     }
 }
