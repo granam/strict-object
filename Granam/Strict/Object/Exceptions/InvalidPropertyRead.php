@@ -1,7 +1,7 @@
 <?php
 namespace Granam\Strict\Object\Exceptions;
 
-class UnknownPropertyWrite extends WritingAccess
+class InvalidPropertyRead extends ReadingAccess
 {
 
 }

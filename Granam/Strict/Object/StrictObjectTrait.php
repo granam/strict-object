@@ -6,7 +6,7 @@ trait StrictObjectTrait
 
     /**
      * @param string $name
-     * @throws Exceptions\UnknownPropertyRead
+     * @throws \Granam\Strict\Object\Exceptions\InvalidPropertyRead
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
      */
     public function __get($name)
@@ -20,7 +20,7 @@ trait StrictObjectTrait
                 $reason .= ' (is private)';
             }
         }
-        throw new Exceptions\UnknownPropertyRead(
+        throw new Exceptions\InvalidPropertyRead(
             \sprintf('Reading of property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
         );
     }
@@ -29,7 +29,7 @@ trait StrictObjectTrait
     /**
      * @param string $name
      * @param $value
-     * @throws Exceptions\UnknownPropertyWrite
+     * @throws \Granam\Strict\Object\Exceptions\InvalidPropertyWrite
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
      */
     public function __set($name, $value)
@@ -43,14 +43,14 @@ trait StrictObjectTrait
                 $reason .= ' (is private)';
             }
         }
-        throw new Exceptions\UnknownPropertyWrite(
+        throw new Exceptions\InvalidPropertyWrite(
             \sprintf('Writing to property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
         );
     }
 
     /**
      * @param string $name
-     * @throws Exceptions\UnknownPropertyWrite
+     * @throws \Granam\Strict\Object\Exceptions\InvalidPropertyWrite
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.unset
      */
     public function __unset($name)
@@ -64,7 +64,7 @@ trait StrictObjectTrait
                 $reason .= ' (is private)';
             }
         }
-        throw new Exceptions\UnknownPropertyWrite(
+        throw new Exceptions\InvalidPropertyWrite(
             \sprintf('Unset of property [%s->%s] fails. %s.', \get_class($this), $name, $reason)
         );
     }
@@ -72,7 +72,7 @@ trait StrictObjectTrait
     /**
      * @param $name
      * @param array $arguments
-     * @throws Exceptions\UnknownMethodCalled
+     * @throws \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
     public function __call($name, array $arguments)
@@ -86,13 +86,13 @@ trait StrictObjectTrait
                 $reason .= ' (is private)';
             }
         }
-        throw new Exceptions\UnknownMethodCalled(\sprintf('Method [%s->%s()] %s.', \get_class($this), $name, $reason));
+        throw new Exceptions\InvalidMethodCall(\sprintf('Method [%s->%s()] %s.', \get_class($this), $name, $reason));
     }
 
     /**
      * @param string $name
      * @param array $arguments
-     * @throws Exceptions\UnknownStaticMethodCalled
+     * @throws \Granam\Strict\Object\Exceptions\InvalidStaticMethodCall
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.callstatic
      */
     public static function __callStatic($name, array $arguments)
@@ -106,18 +106,18 @@ trait StrictObjectTrait
                 $reason .= ' (is private)';
             }
         }
-        throw new Exceptions\UnknownStaticMethodCalled(
+        throw new Exceptions\InvalidStaticMethodCall(
             \sprintf('Static method [%s::%s()] %s.', \get_called_class(), $name, $reason)
         );
     }
 
     /**
-     * @throws Exceptions\UnknownMethodCalled
+     * @throws \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @link http://php.net/manual/en/language.oop5.magic.php#object.invoke
      */
     public function __invoke()
     {
-        throw new Exceptions\UnknownMethodCalled(
+        throw new Exceptions\InvalidMethodCall(
             \sprintf(
                 'Calling object of class [%s] as a function fails. It does not implement the __invoke() method.',
                 \get_called_class()

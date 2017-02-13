@@ -5,7 +5,7 @@ trait StrictObjectTestTrait
 {
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @expectedExceptionMessageRegExp ~does not exist~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -18,7 +18,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @expectedExceptionMessageRegExp ~is protected~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -30,7 +30,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @expectedExceptionMessageRegExp ~is private~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -42,7 +42,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownStaticMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidStaticMethodCall
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.callstatic
      */
     public function callingOfUndefinedStaticMethodThrowsException()
@@ -54,7 +54,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @expectedExceptionMessageRegExp ~is protected~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -66,7 +66,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @expectedExceptionMessageRegExp ~is private~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -78,7 +78,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownMethodCalled
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidMethodCall
      * @link http://php.net/manual/en/language.oop5.magic.php#object.invoke
      */
     public function callingOfObjectItselfAsAMethodThrowsException()
@@ -89,7 +89,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyRead
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyRead
      * @expectedExceptionRegExp ~does not exists~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
      */
@@ -102,7 +102,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyRead
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyRead
      * @expectedExceptionRegExp ~is protected~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
      */
@@ -114,7 +114,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyRead
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyRead
      * @expectedExceptionRegExp ~is private~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.get
      */
@@ -126,7 +126,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyWrite
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyWrite
      * @expectedExceptionRegExp ~does not exists~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
      */
@@ -139,7 +139,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyWrite
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyWrite
      * @expectedExceptionRegExp ~is protected~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
      */
@@ -152,7 +152,7 @@ trait StrictObjectTestTrait
 
     /**
      * @test
-     * @expectedException \Granam\Strict\Object\Exceptions\UnknownPropertyWrite
+     * @expectedException \Granam\Strict\Object\Exceptions\InvalidPropertyWrite
      * @expectedExceptionRegExp ~is private~
      * @link http://php.net/manual/en/language.oop5.overloading.php#object.set
      */
