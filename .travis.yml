@@ -1,21 +1,21 @@
 language: php
 php:
+  - nightly
+  - hhvm
+  - 7.1
   - 7.0
   - 5.6
-  - 5.5
-  - 5.4
-  - hhvm
-  - hhvm-nightly
-  - nightly
-
 matrix:
   allow_failures:
-    - php: hhvm-nightly
     - php: nightly
 
 before_script:
   - composer selfupdate
   - composer update --no-interaction --prefer-dist
+  - composer require codeclimate/php-test-reporter:dev-master --dev
 
 script:
-  - ./vendor/phpunit/phpunit/phpunit -v
+  - ./vendor/phpunit/phpunit/phpunit -v --coverage-clover build/logs/clover.xml
+
+after_script:
+  - CODECLIMATE_REPO_TOKEN=eab71e2b50773acf132261193ff543d87326a590ae48a2798133c29e14b8d609 ./vendor/bin/test-reporter
