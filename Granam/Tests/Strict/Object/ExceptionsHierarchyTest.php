@@ -1,18 +1,24 @@
 <?php
-namespace Granam\Strict\Object;
+namespace Granam\Tests\Strict\Object;
 
-use Granam\Tests\Exceptions\Tools\AbstractExceptionsHierarchyTest;
+use Granam\Tests\ExceptionsHierarchy\Exceptions\AbstractExceptionsHierarchyTest;
 
 class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 {
+    /**
+     * @return string
+     */
     protected function getTestedNamespace()
     {
-        return __NAMESPACE__;
+        return $this->getRootNamespace();
     }
 
+    /**
+     * @return string
+     */
     protected function getRootNamespace()
     {
-        return $this->getTestedNamespace();
+        return str_replace('\\Tests', '', __NAMESPACE__);
     }
 
 }
