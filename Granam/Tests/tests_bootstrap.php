@@ -1,7 +1,5 @@
 <?php
-if (PHP_MAJOR_VERSION >= 7) {
-    include __DIR__ . '/declare_strict_types.php';
-}
+declare(strict_types = 1); // on PHP 7+ are standard PHP methods strict to types of given parameters
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 

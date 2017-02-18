@@ -1,7 +1,9 @@
 <?php
 namespace Granam\Tests\Strict\Object;
 
-class ObjectTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ObjectTest extends TestCase
 {
 
     use StrictObjectTestTrait;
