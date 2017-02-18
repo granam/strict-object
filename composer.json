@@ -29,6 +29,6 @@
   },
   "require-dev": {
     "phpunit/phpunit": "~5.0",
-    "granam/exceptions-hierarchy": "dev-master"
+    "granam/exceptions-hierarchy": "~3.0"
   }
 }
