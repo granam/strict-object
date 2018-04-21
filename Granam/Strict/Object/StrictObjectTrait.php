@@ -12,8 +12,9 @@ trait StrictObjectTrait
     public function __get($name)
     {
         $reason = 'Does not exist';
-        if (property_exists($this, $name)) {
+        if (\property_exists($this, $name)) {
             $reason = 'Has restricted access';
+            /** @noinspection PhpUnhandledExceptionInspection */
             if ((new \ReflectionProperty($this, $name))->isProtected()) {
                 $reason .= ' (is protected)';
             } else {
@@ -35,8 +36,9 @@ trait StrictObjectTrait
     public function __set($name, $value)
     {
         $reason = 'Does not exist';
-        if (property_exists($this, $name)) {
+        if (\property_exists($this, $name)) {
             $reason = 'Has restricted access';
+            /** @noinspection PhpUnhandledExceptionInspection */
             if ((new \ReflectionProperty($this, $name))->isProtected()) {
                 $reason .= ' (is protected)';
             } else {
@@ -56,8 +58,9 @@ trait StrictObjectTrait
     public function __unset($name)
     {
         $reason = 'Does not exist';
-        if (property_exists($this, $name)) {
+        if (\property_exists($this, $name)) {
             $reason = 'has restricted access';
+            /** @noinspection PhpUnhandledExceptionInspection */
             if ((new \ReflectionProperty($this, $name))->isProtected()) {
                 $reason .= ' (is protected)';
             } else {
@@ -78,8 +81,9 @@ trait StrictObjectTrait
     public function __call($name, array $arguments)
     {
         $reason = 'does not exist';
-        if (method_exists($this, $name)) {
+        if (\method_exists($this, $name)) {
             $reason = 'has restricted access';
+            /** @noinspection PhpUnhandledExceptionInspection */
             if ((new \ReflectionMethod($this, $name))->isProtected()) {
                 $reason .= ' (is protected)';
             } else {
@@ -98,8 +102,9 @@ trait StrictObjectTrait
     public static function __callStatic($name, array $arguments)
     {
         $reason = 'does not exist';
-        if (method_exists(static::class, $name)) {
+        if (\method_exists(static::class, $name)) {
             $reason = 'has restricted access';
+            /** @noinspection PhpUnhandledExceptionInspection */
             if ((new \ReflectionMethod(static::class, $name))->isProtected()) {
                 $reason .= ' (is protected)';
             } else {
@@ -107,7 +112,7 @@ trait StrictObjectTrait
             }
         }
         throw new Exceptions\InvalidStaticMethodCall(
-            \sprintf('Static method [%s::%s()] %s.', \get_called_class(), $name, $reason)
+            \sprintf('Static method [%s::%s()] %s.', static::class, $name, $reason)
         );
     }
 
@@ -120,7 +125,7 @@ trait StrictObjectTrait
         throw new Exceptions\InvalidMethodCall(
             \sprintf(
                 'Calling object of class [%s] as a function fails. It does not implement the __invoke() method.',
-                \get_called_class()
+                static::class
             )
         );
     }

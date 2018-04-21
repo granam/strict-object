@@ -2,8 +2,6 @@
 
 **A base object, throwing an exception in case of access to undefined property or method.**
 
-Note: current version is for PHP 5.4+. If your project is bound to PHP 5.3, use [1.0.x version](https://github.com/jaroslavtyc/granam-strict-object/tree/1.0) of strict object instead.
-
 1. [***You deserve to know...***](#you-deserve-to-know)
 2. [**Usage**](#usage)
 3. [**Install**](#Install)
@@ -49,15 +47,6 @@ Think twice about catching something like that! Remember, **you need to know**..
 
 ## Install
 
-Extend composer.json of your project by
-```json
- {
-     "require": {
-         "granam/strict-object": "~1.0"
-     }
- }
 ```
-and run *[composer update](https://getcomposer.org/doc/03-cli.md#update)*
-```
-composer update granam/strict-object
+composer require granam/strict-object
 ```
