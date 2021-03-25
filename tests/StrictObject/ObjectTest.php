@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Granam\Tests\Strict\Object;
 
 use PHPUnit\Framework\TestCase;
